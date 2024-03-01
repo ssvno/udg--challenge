@@ -1,0 +1,118 @@
+document.addEventListener("DOMContentLoaded", function() {
+  var memeForm = document.getElementById("meme-form");
+  var listGallery = document.querySelector(".gallery");
+  var preview = document.getElementById("preview");
+
+  memeForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // creating the img element
+    var urlInput = document.getElementById('uploaded-img').value,
+      src = urlInput,
+      img = document.createElement('img');
+    img.crossOrigin = "anonymous"; // Add this line
+
+    img.onerror = function() {
+      alert('Access to image at ' + src + ' has been blocked by CORS policy.');
+      preview.src = ""; // Clear the preview
+      return; // Stop execution if there is an error
+    };
+
+    img.onload = function() {
+      // Clear the existing content in the gallery
+      listGallery.innerHTML = '';
+
+      // creating the li element
+      var memeLi = document.createElement('li');
+      memeLi.classList.add("meme-img");
+
+      // creating the div to wrap the image and text
+      var memeDiv = document.createElement('div');
+      memeDiv.style.position = 'relative';
+
+      // creating the top text div
+      var topTextDiv = document.createElement('div');
+      topTextDiv.classList.add("text", "top");
+      topTextDiv.innerText = document.getElementById("text-top").value;
+      topTextDiv.style.color = document.getElementById("text-top-color").value;
+      topTextDiv.style.fontSize = document.getElementById("text-top-size").value + 'px';
+      topTextDiv.style.fontFamily = document.getElementById("text-top-font").value; // Apply selected font
+      topTextDiv.style.position = 'absolute';
+      topTextDiv.style.top = '0';
+      topTextDiv.style.width = '100%';
+      topTextDiv.style.textAlign = 'center';
+
+      // creating the bottom text div
+      var bottomTextDiv = document.createElement('div');
+      bottomTextDiv.classList.add("text", "bottom");
+      bottomTextDiv.innerText = document.getElementById("text-bottom").value;
+      bottomTextDiv.style.color = document.getElementById("text-bottom-color").value;
+      bottomTextDiv.style.fontSize = document.getElementById("text-bottom-size").value + 'px';
+      bottomTextDiv.style.fontFamily = document.getElementById("text-bottom-font").value; // Apply selected font
+      bottomTextDiv.style.position = 'absolute';
+      bottomTextDiv.style.bottom = '0';
+      bottomTextDiv.style.width = '100%';
+      bottomTextDiv.style.textAlign = 'center';
+
+      // appending the img and text divs to the wrapper div
+      memeDiv.appendChild(img);
+      memeDiv.appendChild(topTextDiv);
+      memeDiv.appendChild(bottomTextDiv);
+
+      // appending the wrapper div to the li element
+      memeLi.appendChild(memeDiv);
+
+      var removeDiv = document.createElement('div');
+      removeDiv.classList.add("red-cross");
+      removeDiv.innerText = "X";
+      removeDiv.style.color = "red";
+      removeDiv.addEventListener("click", remove);
+      memeLi.appendChild(removeDiv);
+
+      var downloadBtn = document.createElement('button');
+      downloadBtn.innerText = 'Download Image';
+      downloadBtn.classList.add('btn', 'btn-secondary');
+      downloadBtn.onclick = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // For top text
+        ctx.font = topTextDiv.style.fontSize + ' ' + topTextDiv.style.fontFamily; // Include font family
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top'; // align text to the top
+        ctx.fillStyle = topTextDiv.style.color;
+        ctx.fillText(topTextDiv.innerText, canvas.width / 2, 0); // draw text at the top of the canvas
+
+        // For bottom text
+        ctx.font = bottomTextDiv.style.fontSize + ' ' + bottomTextDiv.style.fontFamily; // Include font family
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom'; // align text to the bottom
+        ctx.fillStyle = bottomTextDiv.style.color;
+        ctx.fillText(bottomTextDiv.innerText, canvas.width / 2, canvas.height); // draw text at the bottom of the canvas
+
+        var link = document.createElement('a');
+        link.href = canvas.toDataURL();
+        link.download = 'meme.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+      memeLi.appendChild(downloadBtn);
+
+      // appending the li element to the gallery
+      listGallery.appendChild(memeLi);
+
+      memeForm.reset();
+    };
+
+    img.src = src;
+  });
+
+  function remove(event) {
+    event.target.parentNode.remove();
+  }
+});
