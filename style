@@ -1,1 +1,80 @@
 
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+      color: #555;
+      font-family: 'Raleway', 'Arial', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      text-rendering: optimizeLegibility;
+      }
+  
+  /* --------------------------------------------------- */
+  /* Resuable content */
+  /* --------------------------------------------------- */
+  
+  h1 {
+      font-family: Impact, Arial, sans-serif;
+      -webkit-text-stroke-width: 1.5px;
+     -webkit-text-stroke-color: black;
+     font-size: 320%;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+  }
+  
+  h2 {font-family: Tahoma, Arial, sans-serif;}
+  
+  
+  .background-blue,
+  .meme-gallery {
+      background-color: #A9F5F2;
+      padding: 1%;
+  }
+  
+  /* --------------------------------------------------- */
+  /* Header */
+  /* --------------------------------------------------- */
+  
+  .title {width: 900px;}
+  
+  
+  /* --------------------------------------------------- */
+  /* Meme Gallery */
+  /* --------------------------------------------------- */
+  .gallery {
+      list-style: none;
+      width: 100%;
+  }
+  
+  .meme-img{
+      display: inline-block;
+      margin: 1%;
+      width: 500px;
+      height: auto;
+      text-align: center;
+      position: relative;
+      opacity: 1;
+  }
+  
+  img {width: 500px;}
+  
+  .meme-img:hover {opacity: 0.6;}
+  
+  .red-cross {
+    display: none;
+    width: 500px;
+    height: 250px;
+    content: "X";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -66%);
+    font-weight: 700;
+    text-align: center;
+    font-size: 1500%;
+    
+  }
+  
