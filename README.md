@@ -1,6 +1,6 @@
 # Challenge Ergebnisse
 
-Der Benutzer hat die Möglichkeit, ein Bild per URL einzufügen, sowie einen Titel und eine Beschreibung auf dem Bild hinzuzufügen und bearbeiten. Es gibt die Möglichkeit, mit dem der Benutzer die Schriftart, die Schriftgröße und die Schriftfarbe ändern kann.
+Der Benutzer hat die Möglichkeit, ein Bild per URL einzufügen, sowie einen Titel und eine Beschreibung auf dem Bild hinzuzufügen und zu bearbeiten. Es gibt die Möglichkeit, mit dem der Benutzer die Schriftart, die Schriftgröße und die Schriftfarbe ändern kann.
 
 Nachdem Sie die Bearbeitung des Meme-Bildes abgeschlossen haben, können Sie es per PNG herunterladen.
 
