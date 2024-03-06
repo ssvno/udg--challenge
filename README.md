@@ -8,6 +8,7 @@ Nachdem Sie die Bearbeitung des Meme-Bildes abgeschlossen haben, können Sie es 
 Ich verwende die folgenden Technologien / Frameworks in meinem Projekt:
 
 JavaScript / Bootstrap / jQuery
+
 Ich habe dieses Projekt mit Javascript entwickelt, weil es die Sprache ist, die mir am leichtesten gelungen ist und am besten verstehe.
 
 Das Projekt wurde mit Bootstrap-Framework [getbootstrap](https://getbootstrap.com/) erstellt.
