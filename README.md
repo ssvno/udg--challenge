@@ -19,15 +19,17 @@ Ich wählte dieses Framework aus, da ich mit Bootstrap effiziente, reaktionsschn
 
 Name | Reason
 --- | ---
-[getbootstrap](https://getbootstrap.com/) | hi
-[tether](https://tetherjs.dev/) | hello
-[fontawesome](https://fontawesome.com/) | hola
+[getbootstrap](https://getbootstrap.com/) | Half mir meine Webseite schnell und effizient zu entwickeln, indem es eine solide Basis an UI-Komponenten, responsives Design und vorgefertigte Stile und Funktionen bereitstellt.
+[tether](https://tetherjs.dev/) | Zur Steurung und Anpassung der Positionierung und Ausrichtung von UI-Elementen auf meiner Webseite, um bessere Benutzererfahrung zu schaffen und das Erscheinungsbild zu verbessern.
+[fontawesome](https://fontawesome.com/) | Überarbeitung des visuellen Erscheinungsbild der Website, damit Benutzerfreundlichkeit erhöht werden kann und eine konsistente und flexible Gestaltung ermöglichen zu können.
 
 ## Installation / Ausführung
 
 Die folgenden Komponenten müssen lokal installiert werden:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
+
+Um das Projekt lokal auszuführen, geben Sie Folgendes in die Befehlszeile / bash ein:
 
 ```console
 $ cd path/to/your/project
